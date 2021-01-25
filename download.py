@@ -10,6 +10,10 @@ def download(video_url, extension):
     video_url : the youtube video url (str)
     extension : the extension of video, mp4 or mp3 (str)
 
+    Note
+    ----
+    Version Windows
+
     '''
     
     # Load url in function youtube
@@ -21,15 +25,19 @@ def download(video_url, extension):
     except:
         video = youtube.streams.get_by_itag(140)
 
+    # get th user of the PC
+    user_computer = str(os.environ.get("USERNAME"))
+    path_download = 'C:/Users/' + user_computer + '/Music/Musique_Download'
+
     # download video
-    path_mp4 = video.download('./musiques')
+    path_mp4 = video.download(path_download)
 
     if extension == 'mp3':
         # get the base of path
         base = os.path.basename(path_mp4)
 
         # get the path of mp3
-        path_mp3 = './musiques/' + os.path.splitext(base)[0] + '.mp3'
+        path_mp3 = path_download + '/' + os.path.splitext(base)[0] + '.mp3'
 
         convert(path_mp4, path_mp3 )
 
@@ -65,7 +73,7 @@ def convert(path_mp4, path_mp3):
 
 
 
-
+download(video_url='https://www.youtube.com/watch?v=0mv7ljo9x0g', extension='mp3')
 
 
 
