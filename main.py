@@ -5,8 +5,8 @@ import pygame
 app = tkinter.Tk()
 app.title("MusicApp")
 
-# window logo
-app.iconphoto(False, tkinter.PhotoImage(file='./images/logo.png'))
+# window logo (faut choisir le bon ..)
+app.iconbitmap('./images/logo2.ico')
 
 ## center the window ##
 
