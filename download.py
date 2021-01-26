@@ -2,7 +2,7 @@ import pytube
 import os
 from moviepy.editor import *
 
-def Download(video_url, extension):
+def download_musique(video_url, extension):
     '''Download the video of youtube
 
     Parameters
@@ -43,11 +43,11 @@ def Download(video_url, extension):
         # get the path of mp3
         path_mp3 = path_download + '/' + os.path.splitext(base)[0] + '.mp3'
 
-        Convert(path_mp4, path_mp3)
+        convert(path_mp4, path_mp3)
 
         print('Done')
 
-def Convert(path_mp4, path_mp3):
+def convert(path_mp4, path_mp3):
     '''Convert mp4 to mp3
 
     Parameters
@@ -73,3 +73,4 @@ def Convert(path_mp4, path_mp3):
 
         # remove the mp4
         os.remove(path_mp4)
+        
