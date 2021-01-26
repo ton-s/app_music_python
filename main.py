@@ -16,6 +16,7 @@ screen_y = int(app.winfo_screenheight())
 window_x = 800
 window_y = 600
 
+# calculation to center the window
 position_x = (screen_x // 2) - (window_x //2)
 position_y = (screen_y // 2) - (window_y //2)
 
