@@ -12,7 +12,7 @@ def create_window():
     window_download_music.title('télécharger musique')
 
     # window logo
-    # window_download_music.iconbitmap('../images/logo2.ico')
+    #window_download_music.iconbitmap('../images/logo2.ico')
 
     # dimension of the window
     window_download_music.geometry('480x200')
@@ -35,7 +35,7 @@ def interface_download(window_download_music):
     window_download_music : the download window (tkinter)
     '''
     # Label
-    label_title = tkinter.Label(window_download_music, text='Download Youtube music', fg='#341f97', font=('Calibri', 20))
+    label_title = tkinter.Label(window_download_music, text='Download Youtube music', fg='#192a56', font=('Calibri', 20))
     label_title.grid(padx=100,pady=8, row=0)
 
     label_option = tkinter.Label(window_download_music, text='Entrer le lien de la musique :', font=('Calibri', 12))
@@ -68,7 +68,7 @@ def get_url(url, entry_url, notification):
     music_url = str(url.get())
 
     try: 
-        # download music
+        # download music 
         download.download_music(music_url, 'mp3')
 
         # modify the information during execution

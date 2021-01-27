@@ -9,7 +9,7 @@ def main():
     app.title("MusicApp")
 
     # window logo (faut choisir le bon ..)
-    app.iconbitmap('./images/logo2.ico')
+    app.iconbitmap('./images/logo.ico')
 
     ## center the window ##
 
