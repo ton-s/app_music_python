@@ -2,6 +2,8 @@ import tkinter
 import download
 
 def create_window():
+    '''generates the window and the interface to download music 
+    '''
     
     # create window
     window_download_music = tkinter.Tk()
@@ -28,12 +30,12 @@ def create_window():
 def interface_download(window_download_music):
     '''download window interface
 
-    Parameters
+    Parameter
     ----------
     window_download_music : the download window (tkinter)
     '''
     # Label
-    label_title = tkinter.Label(window_download_music, text='Download Youtube music', fg='#2980b9', font=('Calibri', 20))
+    label_title = tkinter.Label(window_download_music, text='Download Youtube music', fg='#341f97', font=('Calibri', 20))
     label_title.grid(padx=100,pady=8, row=0)
 
     label_option = tkinter.Label(window_download_music, text='Entrer le lien de la musique :', font=('Calibri', 12))
@@ -49,14 +51,14 @@ def interface_download(window_download_music):
     entry_url.grid(row=2)
     
     # Download button
-    download_button = tkinter.Button(window_download_music, width=20, text='Télécharger', font=('Calibri', 12), command=lambda: get_url(url, entry_url, notification))
+    download_button = tkinter.Button(window_download_music, width=20, text='Télécharger', font=('Calibri', 12), fg='#ffffff', bg='#2e86de', command=lambda: get_url(url, entry_url, notification))
     download_button.grid(pady=5, row=3)
 
     
 def get_url(url, entry_url, notification):
     '''retrieve the url of the text entry
 
-    Parameter
+    Parameters
     ---------
     url : the url of the music (str)
     entry_url : the text area (tkinter)
