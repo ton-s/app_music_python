@@ -19,10 +19,10 @@ def create_window():
     window_download_music.maxsize(480, 200)
     window_download_music.minsize(480, 200)
 
+    # call to load the interface
     interface_download(window_download_music)
 
     window_download_music.mainloop()
-
 
 
 def interface_download(window_download_music):
@@ -39,6 +39,7 @@ def interface_download(window_download_music):
     label_option = tkinter.Label(window_download_music, text='Entrer le lien de la musique :', font=('Calibri', 12))
     label_option.grid(pady=4, row=1)
 
+    # download information (notif)
     notification = tkinter.Label(window_download_music, font=('Calibri', 12))
     notification.grid(pady=10, row=4)
 
@@ -47,9 +48,7 @@ def interface_download(window_download_music):
     entry_url = tkinter.Entry(window_download_music, width=50, textvariable=url)
     entry_url.grid(row=2)
     
-
     # Download button
-
     download_button = tkinter.Button(window_download_music, width=20, text='Télécharger', font=('Calibri', 12), command=lambda: get_url(url, entry_url, notification))
     download_button.grid(pady=5, row=3)
 
