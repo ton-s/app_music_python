@@ -4,7 +4,6 @@ import download
 def create_window():
     '''generates the window and the interface to download music 
     '''
-    
     # create window
     window_download_music = tkinter.Tk()
 
@@ -15,11 +14,11 @@ def create_window():
     #window_download_music.iconbitmap('../images/logo2.ico')
 
     # dimension of the window
-    window_download_music.geometry('480x200')
+    window_download_music.geometry('510x200')
 
     # max and min resolution
-    window_download_music.maxsize(480, 200)
-    window_download_music.minsize(480, 200)
+    window_download_music.maxsize(510, 200)
+    window_download_music.minsize(510, 200)
 
     # call to load the interface
     interface_download(window_download_music)
@@ -35,10 +34,10 @@ def interface_download(window_download_music):
     window_download_music : the download window (tkinter)
     '''
     # Label
-    label_title = tkinter.Label(window_download_music, text='Download Youtube music', fg='#192a56', font=('Calibri', 20))
+    label_title = tkinter.Label(window_download_music, text='Convertisseur Youtube mp3', fg='#192a56', font=('Calibri', 20))
     label_title.grid(padx=100,pady=8, row=0)
 
-    label_option = tkinter.Label(window_download_music, text='Entrer le lien de la musique :', font=('Calibri', 12))
+    label_option = tkinter.Label(window_download_music, text='Entrer le lien url de la musique ci-dessous :', font=('Calibri', 12))
     label_option.grid(pady=4, row=1)
 
     # download information (notif)
@@ -53,6 +52,9 @@ def interface_download(window_download_music):
     # Download button
     download_button = tkinter.Button(window_download_music, width=20, text='Télécharger', font=('Calibri', 12), fg='#ffffff', bg='#2e86de', command=lambda: get_url(url, entry_url, notification))
     download_button.grid(pady=5, row=3)
+
+    # also downloads if the "Enter" key is pressed
+    window_download_music.bind('<Return>', lambda event:get_url(url, entry_url, notification))
 
     
 def get_url(url, entry_url, notification):
@@ -76,7 +78,7 @@ def get_url(url, entry_url, notification):
 
     except:
         # modify the information during execution
-        notification.config(fg='#e74c3c', text='Téléchargement impossible !')
+        notification.config(fg='#e74c3c', text='L\'URL n\'est pas valide !')
 
     # clean the text area
     entry_url.delete(0, 'end')
