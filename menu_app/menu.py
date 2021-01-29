@@ -15,12 +15,18 @@ def main_menu(app):
 
     # create the first menu
     first_menu = tkinter.Menu(menu_bar, tearoff=0)
-    first_menu.add_command(label="Ajouter")
-    first_menu.add_command(label="Playlist")
-    first_menu.add_command(label="Quitter", command=app.quit)
 
     # cascade first menu
     menu_bar.add_cascade(label="Fichier", menu=first_menu)
+
+    # named the cascading menu
+    first_menu.add_command(label="Ajouter une musique")
+    first_menu.add_command(label="Ajouter un dossier")
+    first_menu.add_command(label="Créer une playlist")
+    first_menu.add_separator()
+    first_menu.add_command(label="Musique téléchargée")
+    first_menu.add_separator()
+    first_menu.add_command(label="Quitter", command=app.quit)
 
     # create the second menu
     second_menu = tkinter.Menu(menu_bar)

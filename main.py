@@ -28,17 +28,16 @@ def main():
     geo = f"{window_x}x{window_y}+{position_x}+{position_y}"
     app.geometry(geo)
 
+    ### function call ###
 
-
-    '''
-    les appels de fonction ...
-    '''
     # Main Menu
     menu_app.menu.main_menu(app)
 
+    '''
+    interface musique ...
+    '''
 
-
-
+    # end of the loop
     app.mainloop()
 
 
