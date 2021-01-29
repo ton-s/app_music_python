@@ -1,5 +1,6 @@
 import tkinter
 import pygame
+import menu_app.menu  # Module app music
 
 def main():
     ''' Main function
@@ -8,7 +9,7 @@ def main():
     app = tkinter.Tk()
     app.title("MusicApp")
 
-    # window logo (faut choisir le bon ..)
+    # window logo
     app.iconbitmap('./images/logo.ico')
 
     ## center the window ##
@@ -32,6 +33,8 @@ def main():
     '''
     les appels de fonction ...
     '''
+    # Main Menu
+    menu_app.menu.main_menu(app)
 
 
 
