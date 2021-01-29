@@ -1,5 +1,5 @@
 import tkinter
-import download  # Module app music
+import menu_app.download  # Module app music
 
 def create_window_download(app):
     '''generates the window and the interface to download music 
@@ -73,7 +73,7 @@ def get_url(url, entry_url, notification):
 
     try: 
         # download music 
-        download.download_music(music_url, 'mp3')
+        menu_app.download.download_music(music_url, 'mp3')
 
         # modify the information after execution
         notification.config(fg='#2ecc71', text='Téléchargement réussi !')
@@ -95,7 +95,3 @@ def get_url(url, entry_url, notification):
 
     # clean the text area
     entry_url.delete(0, 'end')
-
-
-
-

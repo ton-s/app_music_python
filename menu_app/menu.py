@@ -1,5 +1,5 @@
 import tkinter
-import windowDownload  # Module app music
+import menu_app.windowDownload  # Module app music
 
 #### Main Menu ####
 
@@ -10,7 +10,6 @@ def main_menu(app):
     ---------
     app : main window (tkinter)
     '''
-
     # initialize the menu bar
     menu_bar = tkinter.Menu(app, activebackground='#1144aa', activeforeground='#1144aa')
 
@@ -27,7 +26,7 @@ def main_menu(app):
     second_menu = tkinter.Menu(menu_bar)
     
     # menu boutton simple
-    menu_bar.add_command(label="Télécharger musique", command=lambda: windowDownload.create_window_download(app))
+    menu_bar.add_command(label="Télécharger musique", command=lambda: menu_app.windowDownload.create_window_download(app))
 
 
     # associated the menu to the window
