@@ -37,15 +37,18 @@ def download_music(video_url, extension):
         exit()
 
     if extension == 'mp3':
-        # get the base of path
-        base = os.path.basename(path_mp4)
-
         # get the path of mp3
-        path_mp3 = path_download + '/' + os.path.splitext(base)[0] + '.mp3'
+        path_mp3 = path_download + '/' + youtube.title + '.mp3'
 
-        # converter
-        convert(path_mp4, path_mp3)
+        # check if the music exists
+        if not(os.path.exists(path_mp3)):
+            # converter
+            convert(path_mp4, path_mp3)
+        else:
+            # remove the mp4
+            os.remove(path_mp4)
 
+        # check if everything is correctly executed
         print('Done')
 
 def convert(path_mp4, path_mp3):

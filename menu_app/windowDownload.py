@@ -76,7 +76,7 @@ def get_url(url, entry_url, notification):
         menu_app.download.download_music(music_url, 'mp3')
 
         # modify the information after execution
-        notification.config(fg='#2ecc71', text='Téléchargement réussi !')
+        notification.config(fg='#2ecc71', text='Téléchargement réussi ✔️')
 
     except:
         # check the errors
@@ -87,7 +87,7 @@ def get_url(url, entry_url, notification):
         elif music_url == '':
             # modify the information after execution when the bar is empty
             notification.config(fg='red', text='Merci de saisir une URL valide avant de télécharger')
-
+        
         else:
             # modify the information after execution
             notification.config(fg='red', text='L\'URL n\'est pas valide !')
