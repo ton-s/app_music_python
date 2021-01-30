@@ -1,19 +1,27 @@
 import tkinter
 
-def music_play_button():
-    #Création fenetre de base
-    app = tkinter.Tk()
-    app.geometry("600x480")
-    app.configure(background="#01011d")# Background
-    app.title("Projet Avengers")
+def music_play_button(app):
+    """Display the menu with buttons and the background image
+
+    Parameter
+    ---------
+    app : main window (tkinter)
+    """
+    #Variables globales car soucis du module PhotoImage (perte de l'image en mémoire)
+    global play_image
+    global loop_image
+    global previous_image
+    global next_image
+    global shuffle_image
+    global image_de_fond
 
     #Création des images
-    play_image = tkinter.PhotoImage(file="./icones_boutons/play.png")
-    loop_image = tkinter.PhotoImage(file="./icones_boutons/replay.png")
-    previous_image = tkinter.PhotoImage(file="./icones_boutons/back.png")
-    next_image = tkinter.PhotoImage(file="./icones_boutons/next.png")
-    shuffle_image = tkinter.PhotoImage(file="./icones_boutons/random.png")
-    image_de_fond = tkinter.PhotoImage(file="./icones_boutons/logo Avengers.png")
+    play_image = tkinter.PhotoImage(file="./music_player/icones_boutons/play.png")
+    loop_image = tkinter.PhotoImage(file="./music_player/icones_boutons/replay.png")
+    previous_image = tkinter.PhotoImage(file="./music_player/icones_boutons/back.png")
+    next_image = tkinter.PhotoImage(file="./music_player/icones_boutons/next.png")
+    shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
+    image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
     #Affichage de l'image de fond
     label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
     label.pack(pady=20)
@@ -40,8 +48,3 @@ def music_play_button():
     play_button.pack(side="left", pady=0, padx=10)
     next_button.pack(side="left", pady=0, padx=10)
     loop_button.pack(side="left", pady=0, padx=10)
-
-    #Boucle principale pour garder la fenetre ouverte
-    app.mainloop()
-
-music_play_button()

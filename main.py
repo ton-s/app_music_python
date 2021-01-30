@@ -1,6 +1,7 @@
 import tkinter
 import pygame
 import menu_app.menu  # Module app music
+import music_player.menu_music_play
 
 def main():
     ''' Main function
@@ -8,6 +9,7 @@ def main():
     ### window initialization and settings ###
     app = tkinter.Tk()
     app.title("MusicApp")
+    app.configure(background="#01011d")# Background
 
     # window logo
     app.iconbitmap('./images/logo.ico')
@@ -33,9 +35,8 @@ def main():
     # Main Menu
     menu_app.menu.main_menu(app)
 
-    '''
-    interface musique ...
-    '''
+    # Menu music player
+    music_player.menu_music_play.music_play_button(app)
 
     # end of the loop
     app.mainloop()
