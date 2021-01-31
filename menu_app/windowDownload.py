@@ -15,7 +15,7 @@ def create_window_download(app):
     window_download_music.title('Télécharger musique')
 
     # window logo
-    #window_download_music.iconbitmap('../images/logo.ico')
+    window_download_music.iconbitmap('./images/logo.ico')
 
     # dimension of the window
     window_download_music.geometry('510x200')
