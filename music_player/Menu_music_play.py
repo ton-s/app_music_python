@@ -1,4 +1,5 @@
 import tkinter
+import tkinter.ttk
 
 def music_play_button(app):
     """Display the menu with buttons and the background image
@@ -15,18 +16,18 @@ def music_play_button(app):
     global shuffle_image
     global image_de_fond
 
-    #Création des images
+    # Création des images
     play_image = tkinter.PhotoImage(file="./music_player/icones_boutons/play.png")
     loop_image = tkinter.PhotoImage(file="./music_player/icones_boutons/replay.png")
     previous_image = tkinter.PhotoImage(file="./music_player/icones_boutons/back.png")
     next_image = tkinter.PhotoImage(file="./music_player/icones_boutons/next.png")
     shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
     image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
-    #Affichage de l'image de fond
-    label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
-    label.pack(pady=20)
 
-    #Créations des boutons
+    # Affichage de l'image de fond
+    label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
+    
+    # Créations des boutons
     mainframe = tkinter.Frame(app, width=800, height=600, background="#010123")
 
     play_button = tkinter.Button(mainframe, image=play_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
@@ -35,16 +36,23 @@ def music_play_button(app):
     next_button = tkinter.Button(mainframe, image=next_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
     shuffle_button = tkinter.Button(mainframe, image=shuffle_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
 
-    #Bouton volume
-    volume_button = tkinter.Scale(app, length=300, orient="horizontal", label="VOLUME", relief="flat", showvalue=1, troughcolor="#010123", bg="#010123", fg="#ffffff")
+    # Bouton volume
+    volume_button = tkinter.ttk.Scale(app, from_=0, to=100, value=20)
 
-    #Affichage (attention à l'ordre)
-    volume_button.pack(side="bottom", pady=10)
+    #### DISPLAY ####
 
+    # volume button 
+    volume_button.pack(side="right", padx=10, pady=10)
+
+    # button box
     mainframe.pack(side="bottom")
 
-    shuffle_button.pack(side="left", pady=0, padx=10)
-    previous_button.pack(side="left", pady=0, padx=10)
-    play_button.pack(side="left", pady=0, padx=10)
-    next_button.pack(side="left", pady=0, padx=10)
-    loop_button.pack(side="left", pady=0, padx=10)
+    # background image
+    label.pack(pady=20)
+
+    # Button
+    shuffle_button.pack(side="left", pady=60, padx=10)
+    previous_button.pack(side="left", pady=60, padx=10)
+    play_button.pack(side="left", pady=60, padx=10)
+    next_button.pack(side="left", pady=60, padx=10)
+    loop_button.pack(side="left", pady=60, padx=10)
