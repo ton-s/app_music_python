@@ -24,35 +24,37 @@ def music_play_button(app):
     shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
     image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
 
+    # Create song box
+    song_box = tkinter.Listbox(app, bg="red", fg='white', width=70, bd=5)
+    song_box.insert("end", 'fzgfezkfea')
+
     # Affichage de l'image de fond
     label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
     
-    # Créations des boutons
-    mainframe = tkinter.Frame(app, width=800, height=600, background="#010123")
+    # Create player control buttons
+    mainframe = tkinter.Frame(app, background="#010123")
 
-    play_button = tkinter.Button(mainframe, image=play_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
-    loop_button = tkinter.Button(mainframe, image=loop_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
-    previous_button = tkinter.Button(mainframe, image=previous_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
-    next_button = tkinter.Button(mainframe, image=next_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
-    shuffle_button = tkinter.Button(mainframe, image=shuffle_image, width=50, height=50, bg="#010123", borderwidth=0, activebackground="#010123")
+    play_button = tkinter.Button(mainframe, image=play_image, bg="#010123", borderwidth=0, activebackground="#010123")
+    loop_button = tkinter.Button(mainframe, image=loop_image, bg="#010123", borderwidth=0, activebackground="#010123")
+    previous_button = tkinter.Button(mainframe, image=previous_image, bg="#010123", borderwidth=0, activebackground="#010123")
+    next_button = tkinter.Button(mainframe, image=next_image, bg="#010123", borderwidth=0, activebackground="#010123")
+    shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#010123", borderwidth=0, activebackground="#010123")
 
-    # Bouton volume
-    volume_button = tkinter.ttk.Scale(app, from_=0, to=100, value=20)
+    volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100)
 
     #### DISPLAY ####
+    mainframe.pack(side="bottom", pady=50)
 
-    # volume button 
-    volume_button.pack(side="right", padx=10, pady=10)
-
-    # button box
-    mainframe.pack(side="bottom")
+    # song box
+    song_box.pack()
 
     # background image
     label.pack(pady=20)
 
     # Button
-    shuffle_button.pack(side="left", pady=60, padx=10)
-    previous_button.pack(side="left", pady=60, padx=10)
-    play_button.pack(side="left", pady=60, padx=10)
-    next_button.pack(side="left", pady=60, padx=10)
-    loop_button.pack(side="left", pady=60, padx=10)
+    shuffle_button.pack(side="left", padx=10, pady=5)
+    previous_button.pack(side="left", padx=10, pady=5)
+    play_button.pack(side="left", padx=10, pady=5)
+    next_button.pack(side="left", padx=10, pady=5)
+    loop_button.pack(side="left", padx=10, pady=5)
+    volume_button.pack(side="right", padx=10, pady=5)

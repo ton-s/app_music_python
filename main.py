@@ -31,7 +31,7 @@ def main():
     app.geometry(geo)
 
     # change size
-    # app.resizable(False, False)
+    app.resizable(False, False)
     
     ### function call ###
 
