@@ -1,7 +1,10 @@
 import tkinter
 import pygame
-import menu_app.menu  # Module app music
+
+### MODULE APP ###
+import menu_app.menu  
 import music_player.Menu_music_play
+import music_player.background_animation
 
 def main():
     ''' Main function
@@ -9,7 +12,7 @@ def main():
     ### window initialization and settings ###
     app = tkinter.Tk()
     app.title("MusicApp")
-    app.configure(background="#01011d")
+    app.configure(background="#151515")
 
     # window logo
     app.iconbitmap('./images/logo.ico')
@@ -30,16 +33,17 @@ def main():
     geo = f"{window_x}x{window_y}+{position_x}+{position_y}"
     app.geometry(geo)
 
-    # change size
-    app.resizable(False, False)
+    # dimension min
+    app.minsize(1000, 720)
     
     ### function call ###
 
     # Main Menu
     menu_app.menu.main_menu(app)
 
-    # Menu music player
+    # Menu music player and interface
     music_player.Menu_music_play.music_play_button(app)
+    music_player.background_animation.gif(app)
 
     # end of the loop
     app.mainloop()

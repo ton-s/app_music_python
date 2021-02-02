@@ -22,10 +22,10 @@ def music_play_button(app):
     previous_image = tkinter.PhotoImage(file="./music_player/icones_boutons/back.png")
     next_image = tkinter.PhotoImage(file="./music_player/icones_boutons/next.png")
     shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
-    image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
+    #image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
 
-    # Affichage de l'image de fond
-    label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
+    # # Affichage de l'image de fond
+    # label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
 
     # Create song box
     song_box = tkinter.Listbox(app, bg="#01011d", fg='#ed6e41', width=48, height=23, bd=0, relief='flat', selectbackground='#5e42e4', selectforeground='#ed6e41')
@@ -49,7 +49,7 @@ def music_play_button(app):
     song_box.place(x=0, y=80)
 
     # background image
-    label.pack(pady=20)
+    #label.pack(pady=20)
 
     # Button
     shuffle_button.pack(side="left", padx=10, pady=5)
@@ -58,4 +58,5 @@ def music_play_button(app):
     next_button.pack(side="left", padx=10, pady=5)
     loop_button.pack(side="left", padx=10, pady=5)
     volume_button.pack(side="right", padx=10, pady=5)
+
 
