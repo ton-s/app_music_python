@@ -9,7 +9,7 @@ def main():
     ### window initialization and settings ###
     app = tkinter.Tk()
     app.title("MusicApp")
-    app.configure(background="#01011d")# Background
+    app.configure(background="#01011d")
 
     # window logo
     app.iconbitmap('./images/logo.ico')
