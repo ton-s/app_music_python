@@ -31,18 +31,18 @@ def music_play_button(app):
     # label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
 
     # Create song box
-    song_box = tkinter.Listbox(app, bg="#01011d", fg='#ed6e41', width=48, height=23, bd=0, relief='flat', selectbackground='#5e42e4', selectforeground='#ed6e41')
+    song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=48, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
     song_box.insert("end", 'test')
     
     # Create player control buttons
-    mainframe = tkinter.Frame(app, background="#010123")
+    mainframe = tkinter.Frame(app, background="#151515")
 
-    play_button = tkinter.Button(mainframe, image=play_image, bg="#010123", borderwidth=0, activebackground="#010123")
-    loop_button = tkinter.Button(mainframe, image=loop_image, bg="#010123", borderwidth=0, activebackground="#010123")
-    previous_button = tkinter.Button(mainframe, image=previous_image, bg="#010123", borderwidth=0, activebackground="#010123")
-    next_button = tkinter.Button(mainframe, image=next_image, bg="#010123", borderwidth=0, activebackground="#010123")
-    shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#010123", borderwidth=0, activebackground="#010123")
-    list_button = tkinter.Button(mainframe, image=list_image, bg="#010123", borderwidth=0, activebackground="#010123", command=lambda:music_player.display_song.display_song_box(app, song_box))
+    play_button = tkinter.Button(mainframe, image=play_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    loop_button = tkinter.Button(mainframe, image=loop_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.display_song.display_song_box(app, song_box))
 
     volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100)
 
