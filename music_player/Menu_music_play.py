@@ -1,6 +1,5 @@
 import tkinter
 import tkinter.ttk
-import music_player.display_song
 
 def music_play_button(app):
     """Display the menu with buttons and the background image
@@ -31,7 +30,7 @@ def music_play_button(app):
     # label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
 
     # Create song box
-    song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=48, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
+    song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=50, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
     song_box.insert("end", 'test')
     
     # Create player control buttons
@@ -42,7 +41,7 @@ def music_play_button(app):
     previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
     next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
     shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#151515", borderwidth=0, activebackground="#151515")
-    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.display_song.display_song_box(app, song_box))
+    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:display_song_box(app, song_box))
 
     volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100)
 
@@ -62,3 +61,21 @@ def music_play_button(app):
     volume_button.pack(side="right", padx=10, pady=5)
 
 
+# Display song
+def display_song_box(app, song_box):
+    """Display or not the box of songs in function of his relief
+
+    Parameters
+    ----------
+    app : main window (tkinter)
+    song_box : Listbox with the list of musics (Listbox)
+    """
+    #Check the relief of the Listbox
+    #If it is flat, there is no Listbox, open one
+    if song_box["relief"] == "flat":
+        song_box.place(x=0, y=80)
+        song_box.config(relief="groove")
+    #If it is not flat, there is a Listbox, close it
+    else:
+        song_box.place_forget()
+        song_box.config(relief="flat")
