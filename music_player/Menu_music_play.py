@@ -30,8 +30,7 @@ def music_play_button(app):
     # label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
 
     # Create song box
-    song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=50, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
-    song_box.insert("end", 'test')
+    song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=51, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
     
     # Create player control buttons
     mainframe = tkinter.Frame(app, background="#151515")
