@@ -25,6 +25,7 @@ def music_play_button(app):
     next_image = tkinter.PhotoImage(file="./music_player/icones_boutons/next.png")
     shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
     list_image = tkinter.PhotoImage(file="./music_player/icones_boutons/list.png")
+    cancel_image = tkinter.PhotoImage(file="./music_player/icones_boutons/cancel.png")
     #image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
 
     # # Affichage de l'image de fond
@@ -41,7 +42,7 @@ def music_play_button(app):
     previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
     next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
     shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#151515", borderwidth=0, activebackground="#151515")
-    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:display_song_box(app, song_box))
+    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:display_song_box(app, song_box, list_image, cancel_image, list_button))
 
     volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100)
 
@@ -62,25 +63,39 @@ def music_play_button(app):
 
 
 # Display song
-def display_song_box(app, song_box):
+def display_song_box(app, song_box, list_image, cancel_image, list_button):
     """Display or not the box of songs in function of his relief
 
     Parameters
     ----------
     app : main window (tkinter)
     song_box : Listbox with the list of musics (Listbox)
+    list_image : image of a list (tkinter (png))
+    cancel_image : image of a cross (tkinter (png))
+    list_button : button list (tkinter)
+
+    Note
+    ----
+    warning to the position of the image in the code otherwise the name of `list_button["image"]` changes
     """
-    #Check the relief of the Listbox
-    #If it is flat, there is no Listbox, open one
-    if song_box["relief"] == "flat":
+    
+    # if image list change to cross-hair and bring up the list box else ...
+    if list_button["image"] == 'pyimage7':
         song_box.place(x=0, y=80)
-        song_box.config(relief="groove")
-    #If it is not flat, there is a Listbox, close it
+
+        # change image
+        list_button.config(image=cancel_image)
+        
     else:
+        # make the list box disappear
         song_box.place_forget()
-        song_box.config(relief="flat")
+
+        # change image
+        list_button.config(image=list_image)
 
 
+# supprimer quand on commence la musique et remmetre au propre
+# la fonction est la juste pour test mais sera combiner avec le lancement ... de la musique
 def change_play_and_pause(app, play_button, play_image, pause_image):
     '''
     Parameter
