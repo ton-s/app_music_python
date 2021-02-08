@@ -1,6 +1,9 @@
 import tkinter
 from PIL import Image
 
+# initialize global variable
+anim = None
+
 def gif(app):
     '''Gif initialization
 

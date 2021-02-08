@@ -1,6 +1,16 @@
 import tkinter
 import tkinter.ttk
 
+# initialize global variable
+play_image = None
+pause_image = None
+loop_image = None
+previous_image = None
+next_image = None
+shuffle_image = None
+list_image = None
+cancel_image = None
+
 def music_play_button(app):
     """Display the menu with buttons and the background image
 
@@ -10,12 +20,14 @@ def music_play_button(app):
     """
     #Variables globales car soucis du module PhotoImage (perte de l'image en mémoire)
     global play_image
+    global pause_image
     global loop_image
     global previous_image
     global next_image
     global shuffle_image
-    global image_de_fond
+    # global image_de_fond
     global list_image
+    global cancel_image
 
     # Création des images
     play_image = tkinter.PhotoImage(file="./music_player/icones_boutons/play.png")
