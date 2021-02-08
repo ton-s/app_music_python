@@ -19,6 +19,7 @@ def music_play_button(app):
 
     # Création des images
     play_image = tkinter.PhotoImage(file="./music_player/icones_boutons/play.png")
+    pause_image = tkinter.PhotoImage(file="./music_player/icones_boutons/pause.png")
     loop_image = tkinter.PhotoImage(file="./music_player/icones_boutons/replay.png")
     previous_image = tkinter.PhotoImage(file="./music_player/icones_boutons/back.png")
     next_image = tkinter.PhotoImage(file="./music_player/icones_boutons/next.png")
@@ -35,7 +36,7 @@ def music_play_button(app):
     # Create player control buttons
     mainframe = tkinter.Frame(app, background="#151515")
 
-    play_button = tkinter.Button(mainframe, image=play_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    play_button = tkinter.Button(mainframe, image=play_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:change_play_and_pause(app, play_button, play_image, pause_image))
     loop_button = tkinter.Button(mainframe, image=loop_image, bg="#151515", borderwidth=0, activebackground="#151515")
     previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
     next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
@@ -78,3 +79,17 @@ def display_song_box(app, song_box):
     else:
         song_box.place_forget()
         song_box.config(relief="flat")
+
+
+def change_play_and_pause(app, play_button, play_image, pause_image):
+    '''
+    Parameter
+    ---------
+    app : main window (tkinter)
+    '''
+
+    if play_button["image"] == 'pyimage1':
+        play_button.config(image=pause_image)
+
+    else:
+        play_button.config(image=play_image)
