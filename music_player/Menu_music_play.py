@@ -17,6 +17,10 @@ def music_play_button(app):
     Parameter
     ---------
     app : main window (tkinter)
+
+    Return
+    ------
+    song_box : returns the list of songs (tkinter)
     """
     #Variables globales car soucis du module PhotoImage (perte de l'image en mémoire)
     global play_image
@@ -73,6 +77,7 @@ def music_play_button(app):
     loop_button.pack(side="left", padx=10, pady=5)
     volume_button.pack(side="right", padx=10, pady=5)
 
+    return song_box
 
 # Display song
 def display_song_box(app, song_box, list_image, cancel_image, list_button):

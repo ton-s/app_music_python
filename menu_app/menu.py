@@ -1,14 +1,18 @@
 import tkinter
-import menu_app.windowDownload  # Module app music
+
+### MODULE APP ###
+import menu_app.windowDownload
+import fichiers.add_song
 
 #### Main Menu ####
 
-def main_menu(app):
+def main_menu(app, song_box):
     '''Main window menu
 
     Parameter
     ---------
     app : main window (tkinter)
+    song_box : a list of song (tkinter)
     '''
     # initialize the menu bar
     menu_bar = tkinter.Menu(app, activebackground='#1144aa', activeforeground='#1144aa')
@@ -24,7 +28,7 @@ def main_menu(app):
     first_menu.add_command(label="Ajouter un dossier")
     first_menu.add_command(label="Créer une playlist")
     first_menu.add_separator()
-    first_menu.add_command(label="Musique téléchargée")
+    first_menu.add_command(label="Musique téléchargée", command=lambda:fichiers.add_song.add_musique_download(app, song_box))
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=app.quit)
 

@@ -1,5 +1,4 @@
 import tkinter
-import pygame
 
 ### MODULE APP ###
 import menu_app.menu  
@@ -38,12 +37,12 @@ def main():
     
     ### function call ###
 
-    # Main Menu
-    menu_app.menu.main_menu(app)
-
     # Menu music player and interface
-    music_player.Menu_music_play.music_play_button(app)
+    song_box = music_player.Menu_music_play.music_play_button(app)
     music_player.background_animation.gif(app)
+
+    # Main Menu
+    menu_app.menu.main_menu(app, song_box)
 
     # end of the loop
     app.mainloop()
