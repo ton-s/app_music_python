@@ -38,6 +38,17 @@ def main_menu(app, song_box):
     # menu boutton simple
     menu_bar.add_command(label="Télécharger musique", command=lambda: menu_app.windowDownload.create_window_download(app))
 
+    # create third menu
+    third_menu = tkinter.Menu(menu_bar, tearoff=0)
+
+    # cascade third menu
+    menu_bar.add_cascade(label="Aide", menu=third_menu)
+
+    #named the cascding menu
+    third_menu.add_command(label="Aide")
+    third_menu.add_separator()
+    third_menu.add_command(label="À propos")
+
 
     # associated the menu to the window
     app.config(menu=menu_bar)
