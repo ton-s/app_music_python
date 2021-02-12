@@ -29,7 +29,6 @@ def music_play_button(app):
     global previous_image
     global next_image
     global shuffle_image
-    # global image_de_fond
     global list_image
     global cancel_image
 
@@ -42,10 +41,6 @@ def music_play_button(app):
     shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
     list_image = tkinter.PhotoImage(file="./music_player/icones_boutons/list.png")
     cancel_image = tkinter.PhotoImage(file="./music_player/icones_boutons/cancel.png")
-    #image_de_fond = tkinter.PhotoImage(file="./music_player/icones_boutons/logo Avengers.png")
-
-    # # Affichage de l'image de fond
-    # label = tkinter.Label(app, image=image_de_fond, relief="flat", borderwidth=0)
 
     # Create song box
     song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=51, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
@@ -65,9 +60,6 @@ def music_play_button(app):
     #### DISPLAY ####
     mainframe.pack(side="bottom", pady=50)
 
-    # background image
-    #label.pack(pady=20)
-
     # Button
     list_button.pack(side="left", padx=10, pady=5)
     shuffle_button.pack(side="left", padx=10, pady=5)
@@ -77,6 +69,7 @@ def music_play_button(app):
     loop_button.pack(side="left", padx=10, pady=5)
     volume_button.pack(side="right", padx=10, pady=5)
 
+    # return the status of the listbox
     return song_box
 
 # Display song
@@ -113,6 +106,7 @@ def display_song_box(app, song_box, list_image, cancel_image, list_button):
 
 # supprimer quand on commence la musique et remmetre au propre
 # la fonction est la juste pour test mais sera combiner avec le lancement ... de la musique
+# faire le même pour la couleur de random et replay
 def change_play_and_pause(app, play_button, play_image, pause_image):
     '''
     Parameter
