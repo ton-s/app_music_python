@@ -2,7 +2,6 @@ import pygame
 
 ### MODULE APP ###
 
-
 def load_music_download(song_box, download_song):
     '''Load music from the listbox
 
@@ -16,8 +15,7 @@ def load_music_download(song_box, download_song):
     music = f"{download_song}/{music}.mp3"
 
     pygame.mixer.music.load(music)
-
-    return music
+    pygame.mixer.music.play()
 
 
 def play_pause_song(play_button, play_image, pause_image):
@@ -35,7 +33,7 @@ def play_pause_song(play_button, play_image, pause_image):
         play_button.config(image=pause_image)
 
         # play song
-        pygame.mixer.music.play()
+        pygame.mixer.music.unpause()
 
     else:
         # change the image
