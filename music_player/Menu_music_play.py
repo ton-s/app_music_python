@@ -1,6 +1,9 @@
 import tkinter
 import tkinter.ttk
 
+### MODULE APP ###
+import music_player.play_music
+
 # initialize global variable
 play_image = None
 pause_image = None
@@ -48,12 +51,12 @@ def music_play_button(app):
     # Create player control buttons
     mainframe = tkinter.Frame(app, background="#151515")
 
-    play_button = tkinter.Button(mainframe, image=play_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:change_play_and_pause(app, play_button, play_image, pause_image))
+    play_button = tkinter.Button(mainframe, image=play_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.play_music.play_pause_song(play_button, play_image, pause_image))
     loop_button = tkinter.Button(mainframe, image=loop_image, bg="#151515", borderwidth=0, activebackground="#151515")
     previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
     next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
     shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#151515", borderwidth=0, activebackground="#151515")
-    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:display_song_box(app, song_box, list_image, cancel_image, list_button))
+    list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:display_song_box(song_box, list_image, cancel_image, list_button))
 
     volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100)
 
@@ -73,12 +76,11 @@ def music_play_button(app):
     return song_box
 
 # Display song
-def display_song_box(app, song_box, list_image, cancel_image, list_button):
+def display_song_box(song_box, list_image, cancel_image, list_button):
     """Display or not the box of songs in function of his relief
 
     Parameters
     ----------
-    app : main window (tkinter)
     song_box : Listbox with the list of musics (Listbox)
     list_image : image of a list (tkinter (png))
     cancel_image : image of a cross (tkinter (png))
@@ -102,20 +104,3 @@ def display_song_box(app, song_box, list_image, cancel_image, list_button):
 
         # change image
         list_button.config(image=list_image)
-
-
-# supprimer quand on commence la musique et remmetre au propre
-# la fonction est la juste pour test mais sera combiner avec le lancement ... de la musique
-# faire le même pour la couleur de random et replay
-def change_play_and_pause(app, play_button, play_image, pause_image):
-    '''
-    Parameter
-    ---------
-    app : main window (tkinter)
-    '''
-
-    if play_button["image"] == 'pyimage1':
-        play_button.config(image=pause_image)
-
-    else:
-        play_button.config(image=play_image)

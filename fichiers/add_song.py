@@ -1,10 +1,10 @@
 import tkinter
 import os
-import pygame
 
 ### MODULE APP ###
 import menu_app.menu
 import music_player.Menu_music_play
+import music_player.play_music
 
 def add_musique_download(app, song_box):
     '''Add the music downloads folder in the listbox
@@ -41,17 +41,17 @@ def add_musique_download(app, song_box):
                     song_box.insert('end', song)
 
     
-    song_box.bind('<<ListboxSelect>>', lambda event: test(song_box, download_song))
+    song_box.bind('<<ListboxSelect>>', lambda event: music_player.play_music.load_music_download(song_box, download_song))
 
-def test(song_box, download_song):
+# def test(song_box, download_song):
 
-    print(song_box.curselection())  # get index of the music in listbox
-    musique = song_box.get(song_box.curselection())
-    musique = f"{download_song}/{musique}.mp3"
+#     print(song_box.curselection())  # get index of the music in listbox
+#     musique = song_box.get(song_box.curselection())
+#     musique = f"{download_song}/{musique}.mp3"
 
-    pygame.mixer.music.load(musique)
-    pygame.mixer.music.play()
-    pygame.mixer.music.set_volume(1)
+#     pygame.mixer.music.load(musique)
+#     pygame.mixer.music.play()
+#     pygame.mixer.music.set_volume(1)
 
 
 
