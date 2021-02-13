@@ -51,15 +51,15 @@ def music_play_button(app):
     # Create player control buttons
     mainframe = tkinter.Frame(app, background="#151515")
 
-    play_button = tkinter.Button(mainframe, image=play_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.play_music.play_pause_song(play_button, play_image, pause_image))
+    play_button = tkinter.Button(mainframe, image=pause_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.play_music.play_pause_song(play_button, play_image, pause_image))
     loop_button = tkinter.Button(mainframe, image=loop_image, bg="#151515", borderwidth=0, activebackground="#151515")
     previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
     next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
     shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#151515", borderwidth=0, activebackground="#151515")
     list_button = tkinter.Button(mainframe, image=list_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:display_song_box(song_box, list_image, cancel_image, list_button))
 
-    volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100)
-
+    volume_button = tkinter.ttk.Scale(mainframe, from_=0, to=100, value=100, command=music_player.play_music.set_volume)
+    
     #### DISPLAY ####
     mainframe.pack(side="bottom", pady=50)
 

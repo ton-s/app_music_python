@@ -28,7 +28,7 @@ def main_menu(app, song_box):
     first_menu.add_command(label="Ajouter un dossier")
     first_menu.add_command(label="Créer une playlist")
     first_menu.add_separator()
-    first_menu.add_command(label="Musique téléchargée", command=lambda:fichiers.add_song.add_musique_download(app, song_box))
+    first_menu.add_command(label="Musique téléchargée", command=lambda:fichiers.add_song.add_musique_download(song_box))
     first_menu.add_separator()
     first_menu.add_command(label="Quitter", command=app.quit)
 

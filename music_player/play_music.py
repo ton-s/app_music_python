@@ -2,19 +2,20 @@ import pygame
 
 ### MODULE APP ###
 
-def load_music_download(song_box, download_song):
+def load_music_download(song_box, path_folder):
     '''Load music from the listbox
 
     Parameters
     ----------
     song_box : the list of song (tkinter -> listbox)
-    download_song : the path to the music download folder (str)
+    path_folder : the path to the music folder (str)
     '''
     # get the name and the path of music
     music = song_box.get(song_box.curselection())
-    music = f"{download_song}/{music}.mp3"
+    music = f"{path_folder}/{music}.mp3"
 
     pygame.mixer.music.load(music)
+
     pygame.mixer.music.play()
 
 
@@ -43,5 +44,22 @@ def play_pause_song(play_button, play_image, pause_image):
         pygame.mixer.music.pause()
 
 
+def set_volume(volume_button):
+    '''Set the music volume
+
+    Parameter
+    ---------
+    volume_button : value of scale button (float)
+    '''
+
+    # value between 0.0 and 1.0
+    volume_button = float(volume_button) / 100
+
+    # adjusts the volume of the music
+    pygame.mixer.music.set_volume(volume_button)
 
 
+    
+
+    
+   
