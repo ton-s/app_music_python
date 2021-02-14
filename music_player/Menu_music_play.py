@@ -13,6 +13,7 @@ next_image = None
 shuffle_image = None
 list_image = None
 cancel_image = None
+loop_activate_image = None
 
 def music_play_button(app):
     """Display the menu with buttons and the background image
@@ -34,6 +35,7 @@ def music_play_button(app):
     global shuffle_image
     global list_image
     global cancel_image
+    global loop_activate_image
 
     # Création des images
     play_image = tkinter.PhotoImage(file="./music_player/icones_boutons/play.png")
@@ -44,6 +46,7 @@ def music_play_button(app):
     shuffle_image = tkinter.PhotoImage(file="./music_player/icones_boutons/random.png")
     list_image = tkinter.PhotoImage(file="./music_player/icones_boutons/list.png")
     cancel_image = tkinter.PhotoImage(file="./music_player/icones_boutons/cancel.png")
+    loop_activate_image = tkinter.PhotoImage(file="./music_player/icones_boutons/replay_activate.png")
 
     # Create song box
     song_box = tkinter.Listbox(app, bg="#151515", fg='#00ffff', width=51, height=23, bd=0, relief='flat', selectbackground='#2ba487', selectforeground='#00ffff')
@@ -52,7 +55,7 @@ def music_play_button(app):
     mainframe = tkinter.Frame(app, background="#151515")
 
     play_button = tkinter.Button(mainframe, image=pause_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.play_music.play_pause_song(play_button, play_image, pause_image))
-    loop_button = tkinter.Button(mainframe, image=loop_image, bg="#151515", borderwidth=0, activebackground="#151515")
+    loop_button = tkinter.Button(mainframe, image=loop_image, bg="#151515", borderwidth=0, activebackground="#151515", command=lambda:music_player.play_music.set_replay(loop_button, loop_image, loop_activate_image))
     previous_button = tkinter.Button(mainframe, image=previous_image, bg="#151515", borderwidth=0, activebackground="#151515")
     next_button = tkinter.Button(mainframe, image=next_image, bg="#151515", borderwidth=0, activebackground="#151515")
     shuffle_button = tkinter.Button(mainframe, image=shuffle_image, bg="#151515", borderwidth=0, activebackground="#151515")

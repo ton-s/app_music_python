@@ -59,7 +59,13 @@ def set_volume(volume_button):
     pygame.mixer.music.set_volume(volume_button)
 
 
-    
+def set_replay(loop_button, loop_image, loop_activate_image):
+    '''Loop the music once
 
-    
-   
+    Parameters
+    ----------
+    loop_button : button to loop the music (tkinter)
+    loop_image : image of loop button (tkinter)
+    loop_activate_image : image of loop activate button (tkinter)
+    '''
+    pygame.mixer.music.rewind()
