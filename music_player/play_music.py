@@ -17,6 +17,7 @@ def load_music_download(song_box, path_folder):
     pygame.mixer.music.load(music)
 
     pygame.mixer.music.play()
+    print(song_box.get('active'))
 
 
 def play_pause_song(play_button, play_image, pause_image):
